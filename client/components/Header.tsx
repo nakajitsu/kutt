@@ -40,7 +40,7 @@ const LogoImage = styled.div`
   }
 
   img {
-    width: 18px;
+    width: 50px;
     margin-right: 11px;
   }
 `;
@@ -49,15 +49,6 @@ const Header: FC = () => {
   const { isAuthenticated } = useStoreState(s => s.auth);
   const isMobile = useMedia({ maxWidth: 640 });
 
-  const login = !isAuthenticated && (
-    <Li>
-      <Link href="/login">
-        <ALink href="/login" title="login / signup" forButton>
-          <Button height={[32, 40]}>Login / Sign up</Button>
-        </ALink>
-      </Link>
-    </Li>
-  );
   const logout = isAuthenticated && (
     <Li>
       <Link href="/logout">
@@ -101,7 +92,7 @@ const Header: FC = () => {
             }}
           >
             <img src="/images/logo.svg" alt="" />
-            Kutt.it
+            Nakajitsu
           </a>
         </LogoImage>
         {!isMobile && (
@@ -114,24 +105,6 @@ const Header: FC = () => {
             m={0}
             p={0}
           >
-            <Li>
-              <ALink
-                href="//github.com/thedevs-network/kutt"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="GitHub"
-                fontSize={[14, 16]}
-              >
-                GitHub
-              </ALink>
-            </Li>
-            <Li>
-              <Link href="/report">
-                <ALink href="/report" title="Report abuse" fontSize={[14, 16]}>
-                  Report
-                </ALink>
-              </Link>
-            </Li>
           </Flex>
         )}
       </Flex>
@@ -153,7 +126,6 @@ const Header: FC = () => {
         </Li>
         {logout}
         {settings}
-        {login}
       </RowCenterV>
     </Flex>
   );

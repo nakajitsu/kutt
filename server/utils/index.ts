@@ -36,9 +36,11 @@ export const addProtocol = (url: string): string => {
 export const generateShortLink = (id: string, domain?: string): string => {
   const protocol =
     process.env.CUSTOM_DOMAIN_USE_HTTPS === "true" || !domain
-      ? "https://"
+      ? "http://"
       : "http://";
-  return `${protocol}${domain || process.env.DEFAULT_DOMAIN}/${id}`;
+  const nakajitsuDomain = "kutt.nakajitsu.com";
+
+  return `${protocol}${domain || nakajitsuDomain}/${id}`;
 };
 
 export const isAdmin = (email: string): boolean =>

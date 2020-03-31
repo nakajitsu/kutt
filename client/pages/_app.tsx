@@ -73,7 +73,7 @@ class MyApp extends App<any> {
     return (
       <>
         <Head>
-          <title>Kutt.it | Modern Open Source URL shortener.</title>
+          <title>Nakajitsu</title>
         </Head>
         <StoreProvider store={this.store}>
           <Component {...pageProps} />

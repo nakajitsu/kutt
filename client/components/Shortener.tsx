@@ -121,11 +121,7 @@ const Shortener = () => {
 
   const title = !link && (
     <H1 fontSize={[25, 27, 32]} light>
-      Kutt your links{" "}
-      <Span style={{ borderBottom: "2px dotted #999" }} light>
-        shorter
-      </Span>
-      .
+      短縮したいURLを入力してください
     </H1>
   );
 
@@ -219,24 +215,6 @@ const Shortener = () => {
           {message.text}
         </Text>
       )}
-      <Checkbox
-        {...raw({
-          name: "showAdvanced",
-          onChange: e => {
-            if (!isAuthenticated) {
-              setMessage(
-                "You need to log in or sign up to use advanced options."
-              );
-              return false;
-            }
-            return !formState.values.showAdvanced;
-          }
-        })}
-        checked={formState.values.showAdvanced}
-        label="Show advanced options"
-        mt={[3, 24]}
-        alignSelf="flex-start"
-      />
       {formState.values.showAdvanced && (
         <Flex mt={4} flexDirection={["column", "row"]}>
           <Col mb={[3, 0]}>

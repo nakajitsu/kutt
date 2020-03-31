@@ -18,7 +18,6 @@ const Footer: FC = () => {
     <ColCenter
       as="footer"
       width={1}
-      backgroundColor="white"
       p={isAuthenticated ? 2 : 24}
     >
       {!isAuthenticated && <ReCaptcha />}
@@ -39,22 +38,6 @@ const Footer: FC = () => {
         <ALink href="/terms" title="Terms of Service">
           Terms of Service
         </ALink>
-        {" | "}
-        <ALink href="/report" title="Report abuse">
-          Report Abuse
-        </ALink>
-        {process.env.CONTACT_EMAIL && (
-          <>
-            {" | "}
-            <ALink
-              href={`mailto:${process.env.CONTACT_EMAIL}`}
-              title="Contact us"
-            >
-              Contact us
-            </ALink>
-          </>
-        )}
-        .
       </Text>
     </ColCenter>
   );
