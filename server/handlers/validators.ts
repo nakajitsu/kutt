@@ -1,5 +1,4 @@
 import { body, validationResult } from "express-validator";
-import urlRegex from "url-regex";
 import URL from "url";
 
 import { findDomain } from "../queries/domain";
@@ -42,11 +41,6 @@ export const createLink = [
     .withMessage("Target is missing.")
     .isLength({ min: 1, max: 2040 })
     .withMessage("Maximum URL length is 2040.")
-    .custom(
-      value =>
-        urlRegex({ exact: true, strict: false }).test(value) ||
-        /^(?!https?)(\w+):\/\//.test(value)
-    )
     .withMessage("URL is not valid.")
     .custom(value => URL.parse(value).host !== process.env.DEFAULT_DOMAIN)
     .withMessage(`${process.env.DEFAULT_DOMAIN} URLs are not allowed.`),
